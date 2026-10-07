@@ -1,0 +1,376 @@
+/* ==========================================
+   1. Centered layout & basics
+   ========================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #212529;
+    background-color: #f8f9fa;
+    margin: 0 auto;             /* Zentriert den gesamten Inhalt */
+    max-width: 900px;           /* Begrenzt die maximale Breite */
+    padding: 40px 20px;
+    line-height: 1.6;           /* Ausreichend Zeilenabstand */
+}
+
+/* Colored headings with spacing */
+h1 {
+    color: #1c7ed6;
+    margin-bottom: 24px;
+    font-size: 28px;
+}
+
+h2 {
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 24px;        /* Vertikaler Abstand zwischen Karten */
+}
+
+/* ==========================================
+   2. Tables with highlighted header
+   ========================================== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+th {
+    background-color: #343a40; /* Dunkler Kopf */
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+td {
+    padding: 14px 16px;         /* Mehr Innenabstand in den Zeilen */
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* ==========================================
+   3. Buttons with visible borders
+   ========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Schatten beim Hovern */
+}
+
+.btn-sm {
+    height: 30px;
+    padding: 0 12px;
+    font-size: 13px;
+}
+
+/* Edit button (yellow with dark border) */
+.btn-warning {
+    background-color: #fcc419;
+    color: #212529;
+    border: 1px solid #f59f00;   /* Sichtbare Umrandung */
+}
+.btn-warning:hover {
+    background-color: #fab005;
+    box-shadow: 0 6px 14px rgba(250, 176, 5, 0.4);
+}
+
+/* Delete button (red with darker border) */
+.btn-danger {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: 1px solid #e03131;   /* Sichtbare Umrandung */
+}
+.btn-danger:hover {
+    background-color: #fa5252;
+    box-shadow: 0 6px 14px rgba(224, 49, 49, 0.4);
+}
+
+/* Primary button (blue) */
+.btn-primary {
+    background-color: #1c7ed6;
+    color: #ffffff;
+    border: 1px solid #1971c2;
+}
+.btn-primary:hover {
+    background-color: #1864ab;
+    box-shadow: 0 6px 14px rgba(28, 126, 214, 0.35);
+}
+
+.action-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-inline {
+    display: contents;
+}
+
+/* ==========================================
+   4. Stat cards for the overview
+   ========================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    border: 1px solid #dee2e6;
+    border-left: 5px solid #1c7ed6; /* Blauer Akzentstreifen */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card.accent {
+    border-left-color: #fcc419; /* Gelber Akzentstreifen für Pro-Kopf */
+}
+
+.stat-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #212529;
+}
+
+/* ==========================================
+   5. Form styling & input fields
+   ========================================== */
+
+/* Form groups with clear spacing */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 6px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Consistent inputs & select boxes */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212529;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Subtle placeholder text color */
+input::placeholder {
+    color: #adb5bd;
+}
+
+/* Active focus state while typing / selecting */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #1c7ed6;
+    box-shadow: 0 0 0 3px rgba(28, 126, 214, 0.15);
+}
+
+/* Hover effect for input fields */
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover {
+    border-color: #adb5bd;
+}
+
+/* Layout grid for multi-column forms (e.g. entering expenses) */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+/* ==========================================
+   6. Settlements & personal balance
+   ========================================== */
+
+/* Settlement list */
+.ausgleich-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 0;
+}
+
+.ausgleich-item {
+    display: flex;
+    align-items: center;
+    background-color: #e7f5ff;
+    border-left: 5px solid #1c7ed6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.ausgleich-item strong {
+    color: #1971c2;
+}
+
+/* Table highlighting for balance */
+.saldo-positiv {
+    color: #2b8a3e;
+    font-weight: 600;
+}
+
+.saldo-negativ {
+    color: #c92a2a;
+    font-weight: 600;
+}
+
+/* ==========================================
+   7. Topic overview & project selection
+   ========================================== */
+
+/* Grid for topic cards */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Single card for a topic */
+.topic-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.topic-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.topic-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0 0 8px 0;
+    text-decoration: none;
+}
+
+.topic-meta {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+/* Unterer Bereich in der Karte (Buttons) */
+.topic-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f3f5;
+}
+
+.btn-danger-outline {
+    background-color: transparent;
+    color: #f03e3e;
+    border: 1px solid #ffc9c9;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-danger-outline:hover {
+    background-color: #fff5f5;
+    color: #e03131;
+    border-color: #f03e3e;
+    box-shadow: 0 4px 10px rgba(240, 62, 62, 0.2);
+}
+
+.btn-lg {
+    height: 72px; !important;
+    padding: 0 24px; !important;
+    font-size: 16px; !important;
+    border-radius: 8px; !important;
+}
+

@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool-Verwaltung — Themenübersicht</title>
+    <link rel="stylesheet" href="{% static 'pool/css/style.css' %}">
+</head>
+<body>
+
+    <h1>Projektauswahl</h1>
+
+    <!-- Form: create a new topic -->
+    <div class="card">
+        <h2>Neues Thema anlegen</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add_topic">
+
+            <div class="form-group">
+                <label for="title">Titel des Themas / Urlaubs</label>
+                <input type="text" id="title" name="title" placeholder="Eis Essen" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Thema erstellen</button>
+        </form>
+    </div>
+
+    <!-- Card grid: existing topics -->
+    <div class="card">
+        <h2>Vorhandene Themen</h2>
+
+        {% if topics %}
+            <div class="topic-grid">
+    {% for topic in topics %}
+        <!-- Die gesamte Karte ist nun ein Link -->
+        <a href="{% url 'topic_detail' topic.id %}" class="topic-card-link">
+            <div class="topic-card">
+                <div class="topic-card-content">
+                    <h3 class="topic-title">{{ topic.title }}</h3>
+                    <div class="topic-meta">
+                        Erstellt am: {{ topic.created_at|date:"d.m.Y — H:i" }} Uhr
+                    </div>
+                </div>
+
+                <div class="topic-actions">
+                    <span class="btn btn-primary">Öffnen &rarr;</span>
+
+                    <!-- Delete form (prevents the card from opening when clicked) -->
+                    <form method="POST"
+                          class="form-inline"
+                          onclick="event.stopPropagation();"
+                          onsubmit="event.stopPropagation();">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="delete_topic">
+                        <input type="hidden" name="topic_id" value="{{ topic.id }}">
+                        <button type="submit" class="btn btn-danger-outline btn-sm">Löschen</button>
+                    </form>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+        {% else %}
+            <p style="color: #6c757d; margin: 0;">Es wurden noch keine Themen angelegt. Erstelle oben dein erstes Thema!</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
